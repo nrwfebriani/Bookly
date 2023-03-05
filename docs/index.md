@@ -30,7 +30,7 @@ ___
     - Buku apa yang dapat dibaca selanjutnya tetapi sesuai dengan preferensi?
   </p>
 </details>
-<br></br>
+<br>
 
 ## Ide Solusi
 Dengan adanya aplikasi yang dapat merekomendasikan judul buku berdasarkan input judul buku dari user, para pembaca dapat dengan mudah menemukan buku yang sesuai dengan minat dan kebutuhan mereka.
