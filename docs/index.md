@@ -30,6 +30,7 @@ ___
     - Buku apa yang dapat dibaca selanjutnya tetapi sesuai dengan preferensi?
   </p>
 </details>
+<br></br>
 
 ## Ide Solusi
 Dengan adanya aplikasi yang dapat merekomendasikan judul buku berdasarkan input judul buku dari user, para pembaca dapat dengan mudah menemukan buku yang sesuai dengan minat dan kebutuhan mereka.
@@ -71,16 +72,11 @@ Membantu pengguna dalam menemukan judul buku sesuai dengan genre yang mereka bia
 ![senpro1 drawio](https://user-images.githubusercontent.com/72687883/222960970-fe660f0f-ea43-482f-85a7-8aaaa8e0acc9.png)
 
 ### Functional requirements
-|FR|Deskripsi|
-|---|---|
-|Register|Pengguna baru membuat akun untuk menggunakan aplikasi|
-|Login|Pengguna yang telah membuat akun dapat login|
-|Memasukkan judul buku|Pengguna memasukkan judul buku yang pernah mereka baca|
-|Memilih kategori buku|Pengguna dapat melihat judul-judul buku lainnya dengan memilih kategori yang diinginkan, berdasarkan _genre_ atau penulis|
-|Menampilkan homepage|Pengguna dapat melihat tampilan _homepage_ berdasarkan judul buku yang terbaik|
-|Menampilkan rekomendasi judul buku|Sistem akan menampilkan rekomendasi judul buku yang sesuai dengan judul yang dimasukkan pengguna|
+
+<img width="459" alt="image" src="https://user-images.githubusercontent.com/72687883/222962237-7296c16e-eef8-4091-9696-175186edd7d1.png">
 
 ### Entity relationship diagram
+
 ![senpro1-erd drawio](https://user-images.githubusercontent.com/72687883/222961214-b9a45e0c-1f7a-46db-9d0c-bc7f182c432e.png)
 
 ### Low-fidelity wireframe
