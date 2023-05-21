@@ -1,0 +1,21 @@
+
+/* CSS Document */  
+
+@font-face {
+    font-family: Baloo1;
+    src: url(BalooBhaijaan2-VariableFont_wght.ttf)
+}
+
+.h1 {  
+    font-family: Baloo1;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 60px;
+    line-height: 90px;
+        
+    color: #181D31;  
+}
+
+.bg-item1 {
+    background-color:#678983;
+}
