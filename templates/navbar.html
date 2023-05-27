@@ -9,7 +9,11 @@
       </a>
       <nav class="md:mr-auto md:ml-4 md:py-1 md:pl-4 md:border-l md:border-gray-400	flex flex-wrap items-center text-base justify-center">
         <a href="/recommend" class="mr-5 hover:text-gray-900 menu-nav">Recommend Me</a>
-        <div class="dropdown">
+        <select name="category" placeholder="Category" class="dropdown">
+          <option value="author">By Author</option>
+          <option value="genre">By Genre</option>
+        </select>
+        <!-- <div class="dropdown">
           <button class="dropbtn menu-nav">Category
             <i class="fa fa-caret-down"></i>
           </button>
@@ -17,7 +21,7 @@
             <a href="/byauthor">By Author</a>
             <a href="/bygenre">By Genre</a>
           </div>
-        </div>
+        </div> -->
         <a href="/savedbooks" class="mr-5 hover:text-gray-900 menu-nav">Saved Books</a>
       </nav>
       <a href="/profile" class="mr-5 hover:text-gray-900 menu-nav">Profile</a>
