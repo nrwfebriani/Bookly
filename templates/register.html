@@ -1,6 +1,6 @@
 <html>
   <head>
-    <title>Login Page</title>
+    <title>Register Page</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="/static/style.css" rel="stylesheet">
     <link href="static/bootstrap.min.css" rel="stylesheet" media="screen">
@@ -11,7 +11,7 @@
     <div class="container" style="
     position: absolute; width: 500px; height: 500px; left: 50%; top: 50%; transform: translate(-50%,-50%); padding: 15px; 
     background: #C92C6D; border-radius: 15px;">
-    <br>
+      <br>
       <div class="container mx-auto flex flex-wrap p-5 flex-col flex-row items-center"><a>
         <svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="full" height="105" viewBox="0 0 800.000000 300.000000"
           preserveAspectRatio="xMidYMid meet">
@@ -74,44 +74,46 @@
           -82 c-27 -183 -87 -406 -153 -564 l-31 -74 -39 0 c-32 0 -41 5 -48 23 -8 18
           -52 613 -51 680 0 16 -15 17 -185 17 l-185 0 5 -22z"/>
           </g>
-        </svg>
+      </svg>
       <div class><form action="" method="post">
-        <input style="position: absolute; width: 400px; height: 40px; left: 50%; top: 40%; transform: translate(-50%,-50%); 
-        padding: 15px; background: #181D31; border-radius: 15px;" type="text" placeholder="Username" name="username" value="{{
-          request.form.username }}">
+        <input style="position: absolute; width: 400px; height: 40px; left: 50%; top: 35%; transform: translate(-50%,-50%); 
+        padding: 15px; background: #181D31; border-radius: 15px;" type="text" placeholder="Name" name="name" value="{{
+          request.form.name }}">
         </div>
         <div class>
+         <input style="position: absolute; width: 400px; height: 40px; left: 50%; top: 45%; transform: translate(-50%,-50%); 
+         padding: 15px; background: #181D31; border-radius: 15px;" type="text" placeholder="Username" name="username" value="{{
+          request.form.username }}">
+        <div class>
          <input style="position: absolute; width: 400px; height: 40px; left: 50%; top: 55%; transform: translate(-50%,-50%); 
+         padding: 15px; background: #181D31; border-radius: 15px;" type="text" placeholder="Email" name="email" value="{{
+          request.form.email }}">
+        </div>
+        <div class>
+         <input style="position: absolute; width: 400px; height: 40px; left: 50%; top: 65%; transform: translate(-50%,-50%); 
          padding: 15px; background: #181D31; border-radius: 15px;" type="password" placeholder="Password" name="password" value="{{
           request.form.password }}">
         </div>
+        <div>
+            <a href="/login" class="mr-5 hover:text-gray-900 menu-nav" 
+            style="position: absolute; left: 50%; top: 75%; transform: translate(-50%,-50%);
+            font-family: 'Baloo Bhaijaan 2';
+                font-style: normal;
+                font-weight: 300;
+                font-size: 15px;">Already have an account?</a>
+          </div>
         <div class>
-            <input class="btn btn-default" type="submit" value="Login" style="
+            <input class="btn btn-default" type="submit" value="Register" style="
             position: absolute;
             width: 205px;
             height: 55px;
-            left: 50%; top: 80%; transform: translate(-50%,-50%); padding: 15px;
+            left: 50%; top: 85%; transform: translate(-50%,-50%); padding: 15px;
             background: #FEEFBE;
             border-radius: 15px;
             ">
         </div>
-        <div>
-          <a href="/register" class="mr-5 hover:text-gray-900 menu-nav" 
-          style="position: absolute; left: 50%; top: 70%; transform: translate(-50%,-50%);
-          font-family: 'Baloo Bhaijaan 2';
-              font-style: normal;
-              font-weight: 300;
-              font-size: 15px;">Doesn't have any account?</a>
-        </div>
-        <div>
-          <a href="/home" class="mr-5 hover:text-gray-900 menu-nav" 
-          style="position: absolute; left: 50%; top: 90%; transform: translate(-50%,-50%);
-          font-family: 'Baloo Bhaijaan 2';
-              font-style: normal;
-              font-weight: 300;
-              font-size: 15px;">Back</a>
-        </div>
-      </form> 
+        
+      </form>
       {% if error %}
         <p class="error"><strong>Error:</strong> {{ error }}
       {% endif %}
