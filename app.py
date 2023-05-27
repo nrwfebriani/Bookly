@@ -7,6 +7,9 @@ app = Flask(__name__)
 def home():
     return render_template("home.html")
 
+@app.route("/home")
+def home2():
+    return render_template("home.html")
 
 @app.route("/recommend")
 def recommend():
@@ -48,6 +51,17 @@ def login():
         else:
             return redirect(url_for("home"))
     return render_template("login.html", error=error)
+
+# Route for handling the register page logic
+@app.route("/register", methods=["GET", "POST"])
+def register():
+    error = None
+    if request.method == "POST":
+        if request.form["username"] != "admin" or request.form["password"] != "admin":
+            error = "Invalid Credentials. Please try again."
+        else:
+            return redirect(url_for("home"))
+    return render_template("register.html", error=error)
 
 
 if __name__ == "__main__":
