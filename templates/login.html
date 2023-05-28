@@ -1,44 +1,32 @@
-<html>
+<!doctype html>
+<html lang="en">
   <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Login Page</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="/static/style.css" rel="stylesheet">
     <link href="static/bootstrap.min.css" rel="stylesheet" media="screen">
     <link href='https://fonts.googleapis.com/css?family=Baloo Bhaijaan' rel='stylesheet'>
     <link href='https://fonts.googleapis.com/css?family=Baloo Bhaijaan 2' rel='stylesheet'>
   </head>
-  <body style="background-color: 181D31;">
-    <div class="container" style=" position: absolute; width: 500px; height: 500px; left: 50%; top: 50%; transform: translate(-50%,-50%); 
-    padding: 15px; background: #C92C6D; border-radius: 15px;">
+  <body class="bg-item2">
+    <div class="container-login">
       <div class="container mx-auto flex flex-wrap p-5 flex-col flex-row items-center">
-        <img src="/static/images/logokuning.png" alt="Bookly" style="width:240px; height:90px; position:absolute; left: 27.5%; top: 10%">
+        <img src="/static/images/logokuning.png" alt="Bookly" class="logo-login">
       <div class><form action="" method="post">
-        <input style="position: absolute; width: 400px; height: 40px; left: 50%; top: 40%; transform: translate(-50%,-50%); 
-        padding: 15px; background: #181D31; border-radius: 15px;" type="text" placeholder="Username" name="username" value="{{
+        <input class="form-login un" type="text" placeholder="Username" name="username" value="{{
           request.form.username }}">
         </div>
         <div class>
-         <input style="position: absolute; width: 400px; height: 40px; left: 50%; top: 55%; transform: translate(-50%,-50%); 
-         padding: 15px; background: #181D31; border-radius: 15px;" type="password" placeholder="Password" name="password" value="{{
+         <input class="form-login pas" type="password" placeholder="Password" name="password" value="{{
           request.form.password }}">
         </div>  
         <div class>
-            <input class="btn btn-default" type="submit" value="Login" style="
-            position: absolute; width: 205px; height: 55px; left: 50%; top: 80%; transform: translate(-50%,-50%); padding: 15px;
-            background: #FEEFBE; border-radius: 15px;">
+            <input class="btn btn-default btn-login" type="submit" value="Login">
         </div>
-          <a href="/register" class="mr-5 hover:text-gray-900 menu-nav" 
-          style="position: absolute; left: 50%; top: 70%; transform: translate(-50%,-50%);
-          font-family: 'Baloo Bhaijaan 2';
-              font-style: normal;
-              font-weight: 300;
-              font-size: 15px;">Doesn't have any account?</a>
-          <a href="/home" class="mr-5 hover:text-gray-900 menu-nav" 
-          style="position: absolute; left: 50%; top: 90%; transform: translate(-50%,-50%);
-          font-family: 'Baloo Bhaijaan 2';
-              font-style: normal;
-              font-weight: 300;
-              font-size: 15px;">Back</a>
+          <a href="/register" class="li-reg mr-5 hover:text-gray-900 menu-nav">Doesn't have any account?</a>
+          <a href="/home" class="mr-5 hover:text-gray-900 menu-nav li-back">Back</a>
       </div>
       </form>
       {% if error %}

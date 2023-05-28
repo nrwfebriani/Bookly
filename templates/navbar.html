@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="/static/style.css">
+l<link rel="stylesheet" href="/static/style.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 <header class="text-gray-600 body-font -my-8 head-nav">
@@ -7,20 +7,11 @@
       </a>
       <nav class="md:mr-auto md:ml-4 md:py-1 md:pl-4 md:border-l md:border-gray-400	flex flex-wrap items-center text-base justify-center">
         <a href="/recommend" class="mr-5 hover:text-gray-900 menu-nav">Recommend Me</a>
-        <select onchange="location = this.value;" name="category" placeholder="Category" class="dropdown">
+        <select name="category" onchange="location = this.value;"  placeholder="Category" class="dropdown">
           <option value="">Category</option>
           <option value="/byauthor">Author</option>
           <option value="/bygenre">Genre</option>
         </select>
-        <!-- <div class="dropdown">
-          <button class="dropbtn menu-nav">Category
-            <i class="fa fa-caret-down"></i>
-          </button>
-          <div class="dropdown-content">
-            <a href="/byauthor">By Author</a>
-            <a href="/bygenre">By Genre</a>
-          </div>
-        </div> -->
         <a href="/savedbooks" class="mr-5 hover:text-gray-900 menu-nav">Saved Books</a>
       </nav>
       <a href="/profile" class="mr-5 hover:text-gray-900 menu-nav">Profile</a>
