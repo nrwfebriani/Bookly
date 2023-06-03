@@ -28,13 +28,15 @@
 .btn-login {
   position: absolute; 
   width: 205px; 
-  height: 55px; 
+  height: 40px; 
   left: 50%; 
-  top: 80%; 
+  top: 75%; 
   transform: translate(-50%,-50%); 
-  padding: 15px;
+  padding: 5px;
   background: #FEEFBE; 
   border-radius: 15px;
+  font-family: 'Baloo Bhaijaan 2';
+  font-size:18px;
 }
 
 .btn-register {
@@ -127,6 +129,30 @@ a.menu-nav {
   position: absolute;
   left: 50%;
   top: 75%;
+  transform: translate(-50%,-50%);
+  font-family: 'Baloo Bhaijaan 2';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 15px;
+  color: #fff;
+}
+
+.ref-reg {
+  position: absolute;
+  left: 50%;
+  top: 85%;
+  transform: translate(-50%,-50%);
+  font-family: 'Baloo Bhaijaan 2';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 15px;
+  color: #fff;
+}
+
+.ref-back {
+  position: absolute;
+  left: 50%;
+  top: 90%;
   transform: translate(-50%,-50%);
   font-family: 'Baloo Bhaijaan 2';
   font-style: normal;
