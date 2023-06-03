@@ -37,10 +37,22 @@
   border-radius: 15px;
 }
 
+.btn-register {
+  position: absolute;
+  width: 205px;
+  height: 55px;
+  left: 50%;
+  top: 85%;
+  transform: translate(-50%,-50%);
+  padding: 15px;
+  background: #FEEFBE;
+  border-radius: 15px;
+}
+
 .form-login  {
   position: absolute; 
   width: 400px; 
-  height: 40px; 
+  height: 10px; 
   left: 50%; 
   transform: translate(-50%,-50%); 
   padding: 15px; 
@@ -52,9 +64,22 @@
   top: 40%; 
 }
 
+.na {
+  top: 35%;
+}
+
+.un-2 {
+  top: 45%;
+}
+
 .pas {
   top: 55%; 
 }
+
+.pas-2 {
+  top:65%;
+}
+
 
 .logo-login {
   width:240px; 
@@ -93,6 +118,18 @@ a.menu-nav {
   font-size: 20px;
   line-height: 51px;
   background-color: #181D31;
+}
+
+.ref-login {
+  position: absolute;
+  left: 50%;
+  top: 75%;
+  transform: translate(-50%,-50%);
+  font-family: 'Baloo Bhaijaan 2';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 15px;
+  color: #fff;
 }
 
 nav {
