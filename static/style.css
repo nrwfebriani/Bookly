@@ -47,6 +47,8 @@
   padding: 15px;
   background: #FEEFBE;
   border-radius: 15px;
+  font-family: 'Baloo Bhaijaan 2';
+  font-size:18px;
 }
 
 .form-login  {
@@ -56,7 +58,8 @@
   left: 50%; 
   transform: translate(-50%,-50%); 
   padding: 15px; 
-  background: #181D31; 
+  background: #181D31;
+  color:  #FEEFBE;
   border-radius: 15px;
 }
 
