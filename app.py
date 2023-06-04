@@ -39,6 +39,10 @@ conn = mysql.connector.connect(**config)
 
 @app.route("/")
 def home():
+    if "username" in session and "email" in session:
+        username = session["username"]
+    else:
+        username = ""
     return render_template(
         "home.html",
         book_name=list(popular_df["Book-Title"].values),
@@ -46,16 +50,25 @@ def home():
         image=list(popular_df["Image-URL-M"].values),
         votes=list(popular_df["num_ratings"].values),
         rating=list(popular_df["avg_ratings"].values.round(2)),
+        username=username,
     )
 
 
 @app.route("/recommend")
 def recommend():
-    return render_template("recommend.html")
+    if "username" in session and "email" in session:
+        username = session["username"]
+    else:
+        username = ""
+    return render_template("recommend.html", username=username)
 
 
 @app.route("/recommend_books", methods=["post"])
 def recommend_book():
+    if "username" in session and "email" in session:
+        username = session["username"]
+    else:
+        username = ""
     user_input = request.form.get("user_input")
     index = np.where(pt.index == user_input)[0][0]
     similar_items = sorted(
@@ -73,17 +86,25 @@ def recommend_book():
         data.append(item)
 
     print(data)
-    return render_template("recommend.html", data=data)
+    return render_template("recommend.html", data=data, username=username)
 
 
 @app.route("/category")
 def category():
-    return render_template("category.html")
+    if "username" in session and "email" in session:
+        username = session["username"]
+    else:
+        username = ""
+    return render_template("category.html", username=username)
 
 
 @app.route("/savedbooks")
 def savedbooks():
-    return render_template("savedbooks.html")
+    if "username" in session and "email" in session:
+        username = session["username"]
+    else:
+        username = ""
+    return render_template("savedbooks.html", username=username)
 
 
 @app.route("/profile")
@@ -93,57 +114,38 @@ def profile():
         email = session["email"]
         return render_template("profile.html", username=username, email=email)
     else:
-        return "User not logged in"
+        return render_template("profile.html", username="", email="")
 
 
 @app.route("/bygenre")
 def bygenre():
-    return render_template("bygenre.html")
+    if "username" in session and "email" in session:
+        username = session["username"]
+    else:
+        username = ""
+    return render_template("bygenre.html", username=username)
 
 
 @app.route("/byauthor")
 def byauthor():
-    return render_template("byauthor.html")
+    if "username" in session and "email" in session:
+        username = session["username"]
+    else:
+        username = ""
+    return render_template("byauthor.html", username=username)
 
 
 @app.route("/logout")
 def logout():
+    if "username" in session and "email" in session:
+        username = session["username"]
+    else:
+        username = ""
     # Remove session data, this will log the user out
     session.pop("loggedin", None)
     session.pop("id", None)
     session.pop("username", None)
     return render_template("login.html")
-
-
-# @app.route("/login", methods=["GET", "POST"])
-# def check_login(username, password):
-#     cursor.execute(
-#         "SELECT * FROM user WHERE username = %s AND password = %s",
-#         (
-#             username,
-#             password,
-#         ),
-#     )
-#     user = cursor.fetchone()
-#     return user
-
-
-# def login():
-#     if request.method == "POST":
-#         username = request.form["username"]
-#         password = request.form["password"]
-#         result = check_login(username, password)
-#         # email = result["email"]
-#         # name = result["name"]
-#         if result is not None:
-#             session["username"] = username
-#             # session["email"] = email
-#             # session["name"] = name
-#             return redirect("/login")
-#         else:
-#             error = "Invalid username or password"
-#             return render_template("login.html", error=error)
-#     return render_template("login.html")
 
 
 @app.route("/login", methods=["GET", "POST"])
