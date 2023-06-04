@@ -22,19 +22,21 @@
           <h1 class="head-title">Top Books</h1>
         </div>
         
-        {% for i in range(book_name|length) %}
-            <div class="col-md-3 flex flex-wrap" style="margin-top:50px">
-              <div class="card">
-                <div class="card-body">
-                  <img class="card-img-top" src="{{ image[i] }}">
-                  <h2 class="text-black"><b>{{ book_name[i] }}</b></h2>
-                  <h4 class="text-black">{{ author[i] }}</h4>
-                  <h4 class="text-black">Votes - {{ votes[i] }}</h4>
-                  <h4 class="text-black">Rating - {{ rating[i] }}</h4>
+        <div class="flex flex-wrap display-inline gap-1 justify-center">
+          {% for i in range(book_name|length) %}
+              <div class="col-md-2" style="margin-top:50px">
+                <div class="card">
+                  <div class="card-body">
+                    <img class="card-img-top" src="{{ image[i] }}">
+                    <h2 class="text-black"><b>{{ book_name[i] }}</b></h2>
+                    <h4 class="text-black">{{ author[i] }}</h4>
+                    <h4 class="text-black">Votes - {{ votes[i] }}</h4>
+                    <h4 class="text-black">Rating - {{ rating[i] }}</h4>
+                  </div>
                 </div>
               </div>
-            </div>
-        {% endfor %}
+          {% endfor %}
+        </div>
 
       <section class="text-gray-600 body-font -my-8">
         <div class="container px-5 py-24 mx-auto">
