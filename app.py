@@ -10,20 +10,10 @@ popular_df = pickle.load(open("popular.pkl", "rb"))
 pt = pickle.load(open("pt.pkl", "rb"))
 books = pickle.load(open("books.pkl", "rb"))
 similarity_scores = pickle.load(open("similarity_scores.pkl", "rb"))
-# db = SQLAlchemy()
 
 app = Flask(__name__)
 
 app.secret_key = "booklybagus"
-
-# app.config[
-#     "SQLALCHEMY_DATABASE_URI"
-# ] = "mysql+mysqlconnector://powerpuffgirls:bookly123_@senpro-bookly.mysql.database.azure.com/db-bookly"
-
-# app.config["MYSQL_HOST"] = "senpro-bookly.mysql.database.azure.com"
-# app.config["MYSQL_USER"] = "powerpuffgirls"
-# app.config["MYSQL_PASSWORD"] = "bookly123_"
-# app.config["MYSQL_DB"] = "db-bookly"
 
 config = {
     "host": "senpro-bookly.mysql.database.azure.com",
@@ -36,18 +26,15 @@ config = {
 
 mysql2 = MySQL(app)
 
-try:
-    conn = mysql.connector.connect(**config)
-    print("Connection established")
-except mysql.connector.Error as err:
-    if err.errno == errorcode.ER_ACCESS_DENIED_ERROR:
-        print("Something is wrong with the user name or password")
-    elif err.errno == errorcode.ER_BAD_DB_ERROR:
-        print("Database does not exist")
-    else:
-        print(err)
-else:
-    cursor = conn.cursor(dictionary=True)
+conn = mysql.connector.connect(**config)
+# print("Connection established")
+# except mysql.connector.Error as err:
+#     if err.errno == errorcode.ER_ACCESS_DENIED_ERROR:
+#         print("Something is wrong with the user name or password")
+#     elif err.errno == errorcode.ER_BAD_DB_ERROR:
+#         print("Database does not exist")
+#     else:
+#         print(err)
 
 
 @app.route("/")
@@ -60,11 +47,6 @@ def home():
         votes=list(popular_df["num_ratings"].values),
         rating=list(popular_df["avg_ratings"].values.round(2)),
     )
-
-
-# @app.route("/home")
-# def home2():
-#     return render_template("home.html")
 
 
 @app.route("/recommend")
@@ -166,6 +148,7 @@ def logout():
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
+    cursor = conn.cursor(dictionary=True)
     error = None
     msg = None
     if (
@@ -200,6 +183,7 @@ def login():
         else:
             # Account doesnt exist or username/password incorrect
             msg = "Incorrect username/password!"
+    cursor.close()
     return render_template("login.html", msg=msg)
 
 
@@ -211,6 +195,7 @@ def loginapp():
 # Route for handling the register page logic
 @app.route("/register", methods=["GET", "POST"])
 def register():
+    cursor = conn.cursor(dictionary=True)
     error = ""
     msg = ""
     # Check if "username", "password" and "email" POST requests exist (user submitted form)
@@ -249,6 +234,7 @@ def register():
         # Form is empty... (no POST data)
         error = "Invalid Credentials. Please try again."
     # Show registration form with message (if any)
+    cursor.close()
     return render_template("register.html", error=error, msg=msg)
 
 
