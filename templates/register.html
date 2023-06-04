@@ -15,18 +15,18 @@
       <div class="container mx-auto flex flex-wrap p-5 flex-col flex-row items-center">
         <img src="/static/images/logokuning.png" alt="Bookly" class="logo-login">
         <div class><form action="" method="post">
-          <input class="form-login na" type="text" placeholder="Name" name="name" value="{{
+          <input class="form-login na" type="text" placeholder="Name" name="name" id="name" value="{{
             request.form.name }}">
           </div>
           <div class>
-           <input class="form-login un-2" type="text" placeholder="Username" name="username" value="{{
+           <input class="form-login un-2" type="text" placeholder="Username" name="username" id="username" value="{{
             request.form.username }}">
           <div class>
-           <input class="form-login pas" type="text" placeholder="Email" name="email" value="{{
+           <input class="form-login pas" type="text" placeholder="Email" name="email" id="email" value="{{
             request.form.email }}">
           </div>
           <div class>
-           <input class="form-login pas-2" type="password" placeholder="Password" name="password" value="{{
+           <input class="form-login pas-2" type="password" placeholder="Password" name="password" id="password" value="{{
             request.form.password }}">
           </div>
           <div class>
