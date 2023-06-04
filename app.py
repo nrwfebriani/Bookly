@@ -47,7 +47,7 @@ except mysql.connector.Error as err:
     else:
         print(err)
 else:
-    cursor = conn.cursor()
+    cursor = conn.cursor(dictionary=True)
 
 
 @app.route("/")
@@ -62,9 +62,9 @@ def home():
     )
 
 
-@app.route("/home")
-def home2():
-    return render_template("home.html")
+# @app.route("/home")
+# def home2():
+#     return render_template("home.html")
 
 
 @app.route("/recommend")
@@ -106,7 +106,12 @@ def savedbooks():
 
 @app.route("/profile")
 def profile():
-    return render_template("profile.html")
+    if "username" in session and "email" in session:
+        username = session["username"]
+        email = session["email"]
+        return render_template("profile.html", username=username, email=email)
+    else:
+        return "User not logged in"
 
 
 @app.route("/bygenre")
@@ -128,10 +133,41 @@ def logout():
     return render_template("login.html")
 
 
-# Route for handling the login page logic
+# @app.route("/login", methods=["GET", "POST"])
+# def check_login(username, password):
+#     cursor.execute(
+#         "SELECT * FROM user WHERE username = %s AND password = %s",
+#         (
+#             username,
+#             password,
+#         ),
+#     )
+#     user = cursor.fetchone()
+#     return user
+
+
+# def login():
+#     if request.method == "POST":
+#         username = request.form["username"]
+#         password = request.form["password"]
+#         result = check_login(username, password)
+#         # email = result["email"]
+#         # name = result["name"]
+#         if result is not None:
+#             session["username"] = username
+#             # session["email"] = email
+#             # session["name"] = name
+#             return redirect("/login")
+#         else:
+#             error = "Invalid username or password"
+#             return render_template("login.html", error=error)
+#     return render_template("login.html")
+
+
 @app.route("/login", methods=["GET", "POST"])
 def login():
     error = None
+    msg = None
     if (
         request.method == "POST"
         and "username" in request.form
@@ -140,12 +176,6 @@ def login():
         # Create variables for easy access
         username = request.form["username"]
         password = request.form["password"]
-        # # Retrieve the hashed password
-        # hash = password + app.secret_key
-        # hash = hashlib.sha1(hash.encode())
-        # password = hash.hexdigest()
-        # Check if account exists using MySQL
-        # cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
         cursor.execute(
             "SELECT * FROM user WHERE username = %s AND password = %s",
             (
@@ -154,29 +184,38 @@ def login():
             ),
         )
         # Fetch one record and return the result
-        account = cursor.fetchone()
+        user = cursor.fetchone()
         # If account exists in accounts table in out database
-        if account:
+        if user:
             # Create session data, we can access this data in other routes
+            a = user["id"]
+            b = user["username"]
+            c = user["email"]
             session["loggedin"] = True
-            session["id"] = account["id"]
-            session["username"] = account["username"]
+            session["id"] = a
+            session["username"] = b
+            session["email"] = c
             # Redirect to home page
-            return "Logged in successfully!"
+            msg = "Logged in successfully!"
         else:
             # Account doesnt exist or username/password incorrect
-            error = "Incorrect username/password!"
-    return render_template("login.html", error=error)
+            msg = "Incorrect username/password!"
+    return render_template("login.html", msg=msg)
+
+
+@app.route("/loginapp")
+def loginapp():
+    return render_template("login.html")
 
 
 # Route for handling the register page logic
 @app.route("/register", methods=["GET", "POST"])
 def register():
-    error = None
+    error = ""
+    msg = ""
     # Check if "username", "password" and "email" POST requests exist (user submitted form)
     if (
         request.method == "POST"
-        and "name" in request.form
         and "username" in request.form
         and "password" in request.form
         and "email" in request.form
@@ -191,20 +230,12 @@ def register():
         # If account exists show error and validation checks
         if account:
             error = "Account already exists!"
-        elif not re.match(r"[^@]+@[^@]+\.[^@]+", email):
-            error = "Invalid email address!"
-        elif not re.match(r"[A-Za-z0-9]+", username):
-            error = "Username must contain only characters and numbers!"
         elif not name or not username or not password or not email:
             error = "Please fill out the form!"
         else:
-            # # Hash the password
-            # hash = password + app.secret_key
-            # hash = hashlib.sha1(hash.encode())
-            # password = hash.hexdigest()
             # Account doesn't exist, and the form data is valid, so insert the new account into the accounts table
             cursor.execute(
-                "INSERT INTO user VALUES (NULL, %s, %s, %s)",
+                "INSERT INTO user VALUES (NULL, %s, %s, %s, %s)",
                 (
                     name,
                     username,
@@ -212,13 +243,13 @@ def register():
                     email,
                 ),
             )
-            mysql2.connection.commit()
-            error = "You have successfully registered!"
+            conn.commit()
+            msg = "You have successfully registered!"
     elif request.method == "POST":
         # Form is empty... (no POST data)
         error = "Invalid Credentials. Please try again."
     # Show registration form with message (if any)
-    return render_template("register.html", error=error)
+    return render_template("register.html", error=error, msg=msg)
 
 
 if __name__ == "__main__":

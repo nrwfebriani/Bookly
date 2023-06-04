@@ -26,12 +26,14 @@
             <input class="btn btn-default btn-login" type="submit" value="Login">
         </div>
           <a href="/register" class="ref-reg">Doesn't have any account?</a>
-          <a href="/home" class="ref-back">Back</a>
+          <a href="/" class="ref-back">Back</a>
       </div>
       </form>
-      {% if error %}
-        <p class="error"><strong>Error:</strong> {{ error }}
-      {% endif %}
+      <!-- {% if user %}
+        <a href="/logout" class="mr-5 hover:text-gray-900 menu-nav">Logout</a>
+        {% else %}
+          <a href="/login" class="mr-5 hover:text-gray-900 menu-nav">Login</a>
+      {% endif %} -->
     </div>
   </body>
 </html>
