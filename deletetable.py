@@ -28,7 +28,7 @@ else:
     cursor = conn.cursor()
 
     # Delete a data row in the table
-    # cursor.execute("DELETE FROM user WHERE name=%(param1)s;", {"param1": "orange"})
+    cursor.execute("DELETE FROM user WHERE name=%(param1)s;", {"param1": "login"})
     print("Deleted", cursor.rowcount, "row(s) of data.")
 
     # Cleanup
