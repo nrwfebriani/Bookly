@@ -16,20 +16,20 @@
   </head>
   <body class="bg-item1">
     {% include 'navbar.html' %}
-    <div class="container px-4 py-20 mx-auto">
-      <div class="xl:w-1/2 lg:w-3/4 w-full mx-auto text-center">
+    <div class="container py-20 mx-auto flex-wrap">
+      <div class="mx-auto text-center">
         <div>
           <h1 class="head-title">Top Books</h1>
         </div>
         
-        <div class="flex flex-wrap display-inline gap-1 justify-center">
+        <div class="flex flex-wrap display-inline gap-5 justify-center">
           {% for i in range(book_name|length) %}
-              <div class="col-md-2" style="margin-top:50px">
+              <div class="col-lg-3" style="margin-top:50px">
                 <div class="card">
                   <div class="card-body">
                     <img class="card-img-top" src="{{ image[i] }}">
-                    <h2 class="text-black"><b>{{ book_name[i] }}</b></h2>
-                    <h4 class="text-black">{{ author[i] }}</h4>
+                    <h2 class="text-black"><b>{{ book_name[i] }}</b></h2><br>
+                    <h4 class="text-black">{{ author[i] }}</h4><br>
                     <h4 class="text-black">Votes - {{ votes[i] }}</h4>
                     <h4 class="text-black">Rating - {{ rating[i] }}</h4>
                   </div>

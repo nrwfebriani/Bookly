@@ -17,11 +17,14 @@
     {% include 'navbar.html' %}
       <section class="text-gray-600 body-font -my-8">
         <div class="container px-5 py-24 mx-auto">
-          <div class="xl:w-1/2 lg:w-3/4 w-full mx-auto text-center">
+          <div class="xl:w-1/2 lg:w-3/4 mx-auto text-center">
             <h1 class="head-title">Book Recommendation System</h1>
             <form class="example" action="/recommend_books" method="POST">
-              <input name="user_input" type="text" class="form-control" placeholder="Insert your recent book here.." name="search">
-              <btn type="submit"><i class="fa fa-search"></i></btn>
+              <div class="input-group my-5">
+                <input name="user_input" type="text" class="form-control" placeholder="Insert your recent book here.." name="search">
+                <btn type="submit"><i class="fa fa-search input-group-text
+                  btn"></i></btn>
+              </div>
             </form>
 
             {% if data %}
@@ -39,8 +42,8 @@
             {% endif %}
 
               <span class="inline-block h-1 w-10 rounded bg-indigo-500 mt-8 mb-6 foot"></span>
-              <h2 class="text-gray-900 font-medium title-font tracking-wider text-sm">Powerpuff Girls</h2>
-              <p class="text-gray-500">Senior Project</p>
+              <h2 class="font-medium title-font tracking-wider text-sm foot">Powerpuff Girls</h2>
+            <p class="foot">Senior Project</p>
           </div>
         </div>
       </section>
