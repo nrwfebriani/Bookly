@@ -140,7 +140,10 @@ def logout():
     session.pop("loggedin", None)
     session.pop("id", None)
     session.pop("username", None)
-    return render_template("login.html")
+    session.pop("name", None)
+    session.pop("password", None)
+
+    return redirect(url_for("login"))
 
 
 @app.route("/login", methods=["GET", "POST"])
@@ -179,6 +182,7 @@ def login():
             session["name"] = d
             # Redirect to home page
             msg = "Logged in successfully!"
+            return redirect(url_for("profile"))
         else:
             # Account doesnt exist or username/password incorrect
             msg = "Incorrect username/password!"
@@ -229,6 +233,7 @@ def register():
             )
             conn.commit()
             msg = "You have successfully registered!"
+            return redirect(url_for("login"))
     elif request.method == "POST":
         # Form is empty... (no POST data)
         error = "Invalid Credentials. Please try again."
