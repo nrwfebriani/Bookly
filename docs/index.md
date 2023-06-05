@@ -81,7 +81,7 @@ Membantu pengguna dalam menemukan judul buku sesuai dengan genre yang mereka bia
 
 ### Functional requirements
 
-<img width="459" alt="image" src="<img width="307" alt="image" src="https://github.com/nrwfebriani/Bookly/assets/72687883/a91a42db-6c54-4a15-a3d2-71d3e7fd5cf9">">
+<img width="307" alt="image" src="https://github.com/nrwfebriani/Bookly/assets/72687883/5ce3021d-e629-4eda-b96e-3513f13eeea8">
 
 ### Entity relationship diagram
 
