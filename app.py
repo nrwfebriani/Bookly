@@ -27,14 +27,6 @@ config = {
 mysql2 = MySQL(app)
 
 conn = mysql.connector.connect(**config)
-# print("Connection established")
-# except mysql.connector.Error as err:
-#     if err.errno == errorcode.ER_ACCESS_DENIED_ERROR:
-#         print("Something is wrong with the user name or password")
-#     elif err.errno == errorcode.ER_BAD_DB_ERROR:
-#         print("Database does not exist")
-#     else:
-#         print(err)
 
 
 @app.route("/")
@@ -109,12 +101,15 @@ def savedbooks():
 
 @app.route("/profile")
 def profile():
-    if "username" in session and "email" in session:
+    if "name" in session and "username" in session and "email" in session:
+        name = session["name"]
         username = session["username"]
         email = session["email"]
-        return render_template("profile.html", username=username, email=email)
+        return render_template(
+            "profile.html", name=name, username=username, email=email
+        )
     else:
-        return render_template("profile.html", username="", email="")
+        return render_template("profile.html", name="", username="", email="")
 
 
 @app.route("/bygenre")
@@ -151,8 +146,8 @@ def logout():
 @app.route("/login", methods=["GET", "POST"])
 def login():
     cursor = conn.cursor(dictionary=True)
-    error = None
-    msg = None
+    error = ""
+    msg = ""
     if (
         request.method == "POST"
         and "username" in request.form
@@ -176,10 +171,12 @@ def login():
             a = user["id"]
             b = user["username"]
             c = user["email"]
+            d = user["name"]
             session["loggedin"] = True
             session["id"] = a
             session["username"] = b
             session["email"] = c
+            session["name"] = d
             # Redirect to home page
             msg = "Logged in successfully!"
         else:
@@ -189,9 +186,9 @@ def login():
     return render_template("login.html", msg=msg)
 
 
-@app.route("/loginapp")
-def loginapp():
-    return render_template("login.html")
+# @app.route("/loginapp")
+# def loginapp():
+#     return render_template("login.html")
 
 
 # Route for handling the register page logic

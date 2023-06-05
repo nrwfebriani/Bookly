@@ -137,6 +137,17 @@
   color: #fff;
 }
 
+.container-profile {
+  margin: auto;
+  width: 500px;
+  height: 400px;
+  padding: 20px 20px 20px 70px;
+  border: 2px solid rgba(0, 0, 0, 0.199);
+  border-radius: 50px;
+  background-color:#FEEFBE;
+  color: #181D31;
+}
+
 .ref-reg {
   position: absolute;
   left: 50%;
@@ -256,4 +267,12 @@ form.example::after {
   text-align: left;
   color: #FFFFFF;
   justify-content: flex-end;
+}
+
+.error {
+  color: #FEEFBE;
+}
+
+.message {
+  color:#FEEFBE;
 }

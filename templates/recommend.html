@@ -27,19 +27,21 @@
               </div>
             </form>
 
-            {% if data %}
-              {% for i in data %}
-                <div class="col-md-3 flex flex-wrap" style="margin-top:50px">
-                  <div class="card">
-                    <div class="card-body">
-                      <img class="card-img-top" src="{{ i[2] }}">
-                      <h2 class="text-black"><b>{{ i[0] }}</b></h2>
-                      <h4 class="text-black">{{ i[1] }}</h4>
+            <div class="flex flex-wrap display-inline gap-1 justify-center">
+              {% if data %}
+                {% for i in data %}
+                  <div class="col-md-3 flex flex-wrap" style="margin-top:50px">
+                    <div class="card">
+                      <div class="card-body">
+                        <img class="card-img-top" src="{{ i[2] }}">
+                        <h2 class="text-black"><b>{{ i[0] }}</b></h2>
+                        <h4 class="text-black">{{ i[1] }}</h4>
+                      </div>
                     </div>
                   </div>
-                </div>
-              {% endfor %}
-            {% endif %}
+                {% endfor %}
+              {% endif %}
+            </div>
 
               <span class="inline-block h-1 w-10 rounded bg-indigo-500 mt-8 mb-6 foot"></span>
               <h2 class="font-medium title-font tracking-wider text-sm foot">Powerpuff Girls</h2>

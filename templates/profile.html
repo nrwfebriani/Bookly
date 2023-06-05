@@ -18,15 +18,18 @@
       {% include 'navbar.html' %}
       <section class="text-gray-600 body-font -my-8">
         <div class="container px-5 py-24 mx-auto">
-          <div class="xl:w-1/2 lg:w-3/4 w-full mx-auto text-center">
+          <div class="container-profile mt-3 xl:w-1/2 lg:w-3/4 w-full mx-auto text-center">
             <p class="leading-relaxed text-lg head-title">Profile</p>
                 <div class="mt-5 edit-profile">
                   {% if username %}
+                  <div class="mb-3">
+                    <h4 id="name" class="text-gray-600"><b>Name &emsp;&emsp;&emsp;&emsp;&emsp; : &emsp;{{ name }}</b></h4>
+                </div>
                     <div class="mb-3">
-                        <h4 id="name">Username: {{ username }}</h4>
+                        <h4 id="name" class="text-gray-600"><b>Username &emsp;&emsp;&emsp; : &emsp;{{ username }}</b></h4>
                     </div>
                     <div class="mb-3">
-                        <h4 id="email">E-mail Address: {{ email }}</h4>
+                        <h4 id="email" class="text-gray-600"><b>E-mail Address &emsp; : &emsp;{{ email }}</b></h4>
                     </div>
                   {% else %}
                     <div class="mb-3">

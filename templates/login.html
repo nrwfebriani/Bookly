@@ -29,11 +29,11 @@
           <a href="/" class="ref-back">Back</a>
       </div>
       </form>
-      <!-- {% if user %}
-        <a href="/logout" class="mr-5 hover:text-gray-900 menu-nav">Logout</a>
-        {% else %}
-          <a href="/login" class="mr-5 hover:text-gray-900 menu-nav">Login</a>
-      {% endif %} -->
+      {% if error %}
+        <p class="error"><strong>Error:</strong> {{ error }}
+          {% else %}
+            <p class="message"><strong></strong> {{ msg }}
+      {% endif %}
     </div>
   </body>
 </html>

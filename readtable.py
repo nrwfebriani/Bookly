@@ -34,7 +34,10 @@ else:
 
     # Print all rows
     for row in rows:
-        print("Data row = (%s, %s, %s)" % (str(row[0]), str(row[1]), str(row[2])))
+        print(
+            "Data row = (%s, %s, %s, %s, %s)"
+            % (str(row[0]), str(row[1]), str(row[2]), str(row[3]), str(row[4]))
+        )
 
     # Cleanup
     conn.commit()
