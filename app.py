@@ -29,7 +29,7 @@ mysql2 = MySQL(app)
 conn = mysql.connector.connect(**config)
 
 
-@app.route("/")
+@app.route("/home")
 def home():
     if "username" in session and "email" in session:
         username = session["username"]
@@ -146,7 +146,7 @@ def logout():
     return redirect(url_for("login"))
 
 
-@app.route("/login", methods=["GET", "POST"])
+@app.route("/", methods=["GET", "POST"])
 def login():
     cursor = conn.cursor(dictionary=True)
     error = ""
