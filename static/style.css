@@ -268,6 +268,13 @@ form.example::after {
   justify-content: flex-end;
 }
 
+.text-recommend {
+  font-family: 'Baloo Bhaijaan 2';
+  font-weight: 500;
+  font-size: 20px;
+  color:#181D31;
+}
+
 .error {
   color: #FEEFBE;
 }

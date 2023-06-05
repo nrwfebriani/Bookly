@@ -78,7 +78,7 @@ def recommend_book():
         data.append(item)
 
     print(data)
-    return render_template("recommend.html", data=data, username=username)
+    return render_template("recommend.html", data=data, user_input=user_input, username=username)
 
 
 @app.route("/category")
