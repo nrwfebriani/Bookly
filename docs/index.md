@@ -44,12 +44,10 @@ Dengan adanya aplikasi yang dapat merekomendasikan judul buku berdasarkan input 
 | --------------------- | ------------------------------------------------------------------------------------------------------------------- |
 | Register              | Calon pengguna mendaftarkan akun ke dalam website                                                                   |
 | Login                 | Pengguna masuk ke dalam website menggunakan akun                                                                    |
-| Profile               | Pengguna dapat mengganti detail data akun                                                                           |
+| Profile               | Pengguna dapat melihat detail data akun                                                                             |
 | Input book title      | Pengguna memasukkan judul buku yang ingin dijadikan acuan rekomendasi                                               |
 | Recommendation result | Pengguna mendapatkan list judul buku hasil rekomendasi                                                              |
-| Sort by author        | Pengguna dapat melihat judul buku yang ada dari _database_ berdasarkan nama penulis                                 |
-| Sort by genre         | Pengguna dapat melihat judul buku yang ada dari _database_ berdasarkan genre                                        |
-| Saved books           | Pengguna dapat menyimpan judul buku dari hasil rekomendasi ke dalam akun dan melihat list judul yang telah disimpan |
+| Top 50 Books          | Pengguna dapat melihat daftar 50 buku teratas berdasarkan rating dari database                                      |
 
 ## Analisis Kompetitor
 
@@ -79,11 +77,11 @@ Membantu pengguna dalam menemukan judul buku sesuai dengan genre yang mereka bia
 
 ### Use case diagram
 
-![senpro1 drawio](https://user-images.githubusercontent.com/72687883/222960970-fe660f0f-ea43-482f-85a7-8aaaa8e0acc9.png)
+![image](https://github.com/nrwfebriani/Bookly/assets/72687883/c12c4de4-c350-4f59-abba-9cd9b8bf83b0)
 
 ### Functional requirements
 
-<img width="459" alt="image" src="https://user-images.githubusercontent.com/72687883/222962237-7296c16e-eef8-4091-9696-175186edd7d1.png">
+<img width="307" alt="image" src="https://github.com/nrwfebriani/Bookly/assets/72687883/5ce3021d-e629-4eda-b96e-3513f13eeea8">
 
 ### Entity relationship diagram
 
@@ -98,18 +96,6 @@ Membantu pengguna dalam menemukan judul buku sesuai dengan genre yang mereka bia
 - Recommendation page
 
 ![Recommend Page](https://user-images.githubusercontent.com/72687883/222961408-63fe65f1-ffaf-4c43-81fc-605dafdd89a3.png)
-
-- Saved books page
-
-![Saved Books Page](https://user-images.githubusercontent.com/72687883/222961413-59f403c3-900e-4ec6-8e47-d9536e69c914.png)
-
-- Sort by genre page
-
-![Genre Page](https://user-images.githubusercontent.com/72687883/222961423-6a46f340-1120-4ed1-89af-9456e47cac91.png)
-
-- Sort by author page
-
-![Author Page](https://user-images.githubusercontent.com/72687883/222961432-43ad453c-83ce-42de-965c-04245226b19b.png)
 
 - Register page
 

@@ -282,3 +282,7 @@ form.example::after {
 .message {
   color:#FEEFBE;
 }
+
+.div-col {
+  margin-top:50px
+}
